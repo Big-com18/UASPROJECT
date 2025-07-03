@@ -1,0 +1,222 @@
+/* Menu1.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.topbar {
+  display: flex;
+  /* Aligns all items to the start (left) by default */
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Styles for the left section of the top bar (menu icon + logo/text) */
+.topbar-left-section {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between the menu icon and the RANCAR logo/text */
+}
+
+.menu-icon i {
+  font-size: 20px;
+}
+
+/* Styles for the logo and text group in the top bar */
+.logo1 {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between the RANCAR logo image and text */
+}
+
+/* Styles for the RANCAR logo image in the top bar */
+.logo-img-topbar {
+  width: 30px;
+  height: 30px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Pushes the profile section to the far right */
+  margin-left: auto;
+}
+
+.profile img {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+.navbartext {
+  text-decoration: none;
+  color: #00bfa5;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 240px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+  transition: left 0.3s ease;
+  z-index: 1001;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Increased space below the sidebar header (logo and text) */
+  margin-bottom: 40px;
+}
+
+.sidebar-header img {
+  width: 30px;
+  height: 30px;
+}
+
+.sidebar-header .logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00bfa5;
+}
+
+.sidebar-menu a {
+  color: #00bfa5;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 0;
+  display: block;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: #e0f7fa;
+  border-radius: 6px;
+  padding-left: 6px;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1000;
+}
+
+.overlay.active {
+  display: block;
+}
+
+main {
+  padding: 16px;
+}
+
+.title {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 16px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.search-bar i {
+  color: #888;
+}
+
+.route-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.route-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  justify-content: space-between;
+}
+
+.route-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.route-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+.route-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.route-info strong {
+  color: #007b83;
+  font-size: 14px;
+}
+
+.route-info small {
+  color: #555;
+  font-size: 12px;
+}
+
+.route-right i {
+  color: #007b83;
+}
+
+.warning-icon {
+  color: red;
+}

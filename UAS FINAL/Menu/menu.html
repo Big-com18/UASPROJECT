@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rancar</title>
+  <link rel="icon" href="../Menu/pic/Logo Only.png" type="image/png">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kodchasan&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+</head>
+<body class="fade-in">
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <i class="fas fa-times close-btn" id="closeSidebar"></i>
+      <img src="../Menu/pic/Logo Only.png" alt="Logo" class="logo-img">
+      <span class="logo-text">RANCAR</span>
+    </div>
+    <div class="sidebar-menu">
+      <a href="#">Lihat Laporan</a>
+      <a href="#">Upload Laporan</a>
+      <a href="#">Rute Transjakarta</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="menu-icon">
+      <i class="fas fa-bars" id="openSidebar"></i>
+    </div>
+    <div class="logo">
+      <img src="../Menu/pic/Logo Only.png" alt="Rancar Logo">
+      <span>Rancar</span>
+    </div>
+    <div class="user-profile">
+      <img class="avatar-img" src="../Menu/pic/Profile.jpg" alt="Foto Profil">
+      <span class="user-name">Yaa Silin</span>
+    </div>
+  </header>
+
+  <!-- Konten -->
+  <main class="container">
+    <div class="transjakarta">
+      <i class="fas fa-bus"></i>
+      <span>Rute TransJakarta</span>
+    </div>
+
+    <div class="card">
+      <div class="card-text">
+        <h4>Rute ke Kampus</h4>
+        <p>Perjalanan dari rumah menuju kampus dengan rute tercepat dan terdekat.</p>
+      </div>
+      <div class="map-container">
+        <div id="map1" style="height: 300px;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-text">
+        <h4>Rute ke Stasiun</h4>
+        <p>Alternatif rute untuk menuju stasiun terdekat dari lokasi kamu.</p>
+      </div>
+      <div class="map-container">
+        <div id="map2" style="height: 300px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

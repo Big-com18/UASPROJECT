@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rancar - Rute Bus</title>
+  <link rel="stylesheet" href="Menu1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kodchasan&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="menu-icon" id="openSidebar"><i class="fas fa-bars"></i></div>
+    <div class="logo1">
+      <img src="../Menu/pic/Logo Only.png" alt="Rancar Logo" class="logo-img-topbar" />
+      <a class="navbartext" href="../Laporan/laporan.html">RANCAR</a>
+    </div>
+    <div class="profile">
+      <img src="../Menu/pic/Profile.jpg" alt="Profile">
+      <span>Yaa Siin</span>
+    </div>
+  </header>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <img src="../Menu/pic/Logo Only.png" alt="Logo" class="logo-img">
+      <span class="logo-text">RANCAR</span>
+    </div>
+    <div class="sidebar-menu">
+      <a href="#" class="sidebar-link">Lihat Laporan</a>
+      <a href="#" class="sidebar-link">Upload Laporan</a>
+      <a href="#" class="sidebar-link">Rute Transjakarta</a>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+
+  <main>
+    <h2 class="title">Rute Bus</h2>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Cari rute">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <div class="route-list" id="routeList">
+    </div>
+  </main>
+
+  <script src="NYOBA.JS"></script>
+</body>
+</html>
