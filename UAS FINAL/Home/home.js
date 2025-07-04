@@ -1,3 +1,5 @@
+// PENTING: Mengatur jalur gambar ikon default Leaflet
+// Ini mengatasi masalah di mana ikon penanda tidak muncul karena jalur gambar yang salah
 L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.9.4/dist/images/';
 const laporanData = [
       {
@@ -60,6 +62,9 @@ const laporanData = [
         `;
 
         container.appendChild(card);
+
+        // Penting: Inisialisasi peta setelah elemen DOM ada dan ukurannya ditentukan
+        // Timeout 0ms tetap digunakan untuk memastikan DOM siap
         setTimeout(() => {
           const map = L.map(mapId, {
             zoomControl: false,
@@ -85,6 +90,8 @@ const laporanData = [
     }
 
     function lihatLebihBanyak() {
+      // Mengganti alert dengan modal kustom atau pesan di UI
+      // Karena alert() tidak disarankan dalam lingkungan Canvas/iFrame
       const messageBox = document.createElement('div');
       messageBox.style.cssText = `
         position: fixed;

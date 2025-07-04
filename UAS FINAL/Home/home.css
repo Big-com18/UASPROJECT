@@ -36,6 +36,36 @@ body.sidebar-open {
 .menu-icon {
   font-size: 22px;
   cursor: pointer;
+}
+
+.navbar .nav-left .menu-icon {
+    color: #00b2a9;
+}
+.logo {
+  height: 50px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbfbfb;
+  padding: 10px 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 2;
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
   color: #333;
 }
 
@@ -43,30 +73,43 @@ body.sidebar-open {
   height: 50px;
 }
 
+/* START MODIFIKASI UNTUK NAV-RIGHT (Tampilan Persegi Panjang dengan Sudut Kiri Bulat) */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  background-color: #f4f4f4; /* Warna latar belakang */
+  /* Padding untuk konten di dalamnya. Sesuaikan secara visual. */
+  padding: 4px 16px 4px 4px; /* Top, Right, Bottom, Left. Perhatikan padding kiri yang lebih kecil. */
+  /* border-radius hanya di sisi kiri */
+  border-top-left-radius: 25px; /* Sesuaikan dengan setengah tinggi avatar + padding vertikal */
+  border-bottom-left-radius: 25px; /* Sesuaikan dengan setengah tinggi avatar + padding vertikal */
+  border-top-right-radius: 0; /* Pastikan sisi kanan rata */
+  border-bottom-right-radius: 0; /* Pastikan sisi kanan rata */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  height: 48px; /* Tinggi total elemen, 40px avatar + 8px padding vertikal */
+  margin-right: -16px; /* Offset agar bagian kanan menempel/keluar dari padding navbar */
 }
 
 .avatar {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid #e0e0e0; /* Border abu-abu terang */
+  /* Tidak perlu margin-left di sini karena padding kiri di .nav-right sudah mengatur jarak */
 }
 
-/* Gaya baru untuk border pada profile */
-.profile-border {
-  border: 2px solid #00bfa5; /* Warna hijau teal yang sesuai dengan tema Rancar */
-  padding: 1px; /* Memberi sedikit ruang antara gambar dan border */
+/* Tambahkan ruang antara avatar dan username */
+.nav-right .username {
+  margin-left: 10px; /* Jarak antara avatar dan teks */
+  font-size: 16px;
+  font-weight: 600;
+  color: #00bfa5;
+  white-space: nowrap;
 }
+/* END MODIFIKASI UNTUK NAV-RIGHT */
 
-
-.username {
-  font-size: 14px;
-  font-weight: 500;
-}
 
 /* Sidebar */
 .sidebar {
@@ -104,6 +147,7 @@ body.sidebar-open {
   font-size: 18px;
   font-weight: bold;
   color: #00bfa5;
+  font-family: 'Kodchasan', sans-serif;
 }
 
 .sidebar-menu a {
@@ -123,6 +167,7 @@ body.sidebar-open {
   padding-left: 6px;
 }
 
+/* ... CSS Anda yang sudah ada di bawah ... */
 /* Overlay */
 .overlay {
   position: fixed;
