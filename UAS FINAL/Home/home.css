@@ -1,3 +1,6 @@
+/* ======================================= */
+/* Global Styles & Reset         */
+/* ======================================= */
 * {
   margin: 0;
   padding: 0;
@@ -12,15 +15,17 @@ html, body {
 }
 
 body.sidebar-open {
-  overflow: hidden;
+  overflow: hidden; /* Mencegah scrolling saat sidebar terbuka */
 }
 
-/* Navbar */
+/* ======================================= */
+/* Navbar                  */
+/* ======================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: #fbfbfb; /* Menggunakan warna terakhir yang didefinisikan */
   padding: 10px 16px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   z-index: 2;
@@ -34,53 +39,37 @@ body.sidebar-open {
 }
 
 .menu-icon {
-  font-size: 22px;
-  cursor: pointer;
+  font-size: 22px; /* Menggunakan ukuran terakhir yang didefinisikan */
+  cursor: pointer; /* Menggunakan warna terakhir yang didefinisikan */
 }
 
 .navbar .nav-left .menu-icon {
     color: #00b2a9;
-}
-.logo {
-  height: 50px;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fbfbfb;
-  padding: 10px 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  z-index: 2;
-  position: relative;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.menu-icon {
-  font-size: 22px;
-  cursor: pointer;
-  color: #333;
-}
+} 
 
 .logo {
-  height: 50px;
+  height: 30px; /* Menggunakan tinggi terakhir yang didefinisikan */
+  padding-right: 0px;
 }
 
-/* START MODIFIKASI UNTUK NAV-RIGHT (Tampilan Persegi Panjang dengan Sudut Kiri Bulat) */
+.navbartext {
+  text-decoration: none;
+  color: #00bfa5;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'Kodchasan', sans-serif;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* ======================================= */
+/* Nav-Right                 */
+/* ======================================= */
 .nav-right {
   display: flex;
   align-items: center;
   background-color: #f4f4f4; /* Warna latar belakang */
-  /* Padding untuk konten di dalamnya. Sesuaikan secara visual. */
   padding: 4px 16px 4px 4px; /* Top, Right, Bottom, Left. Perhatikan padding kiri yang lebih kecil. */
-  /* border-radius hanya di sisi kiri */
   border-top-left-radius: 25px; /* Sesuaikan dengan setengah tinggi avatar + padding vertikal */
   border-bottom-left-radius: 25px; /* Sesuaikan dengan setengah tinggi avatar + padding vertikal */
   border-top-right-radius: 0; /* Pastikan sisi kanan rata */
@@ -97,10 +86,8 @@ body.sidebar-open {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #e0e0e0; /* Border abu-abu terang */
-  /* Tidak perlu margin-left di sini karena padding kiri di .nav-right sudah mengatur jarak */
 }
 
-/* Tambahkan ruang antara avatar dan username */
 .nav-right .username {
   margin-left: 10px; /* Jarak antara avatar dan teks */
   font-size: 16px;
@@ -108,10 +95,10 @@ body.sidebar-open {
   color: #00bfa5;
   white-space: nowrap;
 }
-/* END MODIFIKASI UNTUK NAV-RIGHT */
 
-
-/* Sidebar */
+/* ======================================= */
+/* Sidebar                 */
+/* ======================================= */
 .sidebar {
   position: fixed;
   top: 0;
@@ -128,7 +115,7 @@ body.sidebar-open {
 }
 
 .sidebar.active {
-  left: 0;
+  left: 0; /* Sidebar terlihat */
 }
 
 .sidebar-header {
@@ -167,8 +154,9 @@ body.sidebar-open {
   padding-left: 6px;
 }
 
-/* ... CSS Anda yang sudah ada di bawah ... */
-/* Overlay */
+/* ======================================= */
+/* Overlay                */
+/* ======================================= */
 .overlay {
   position: fixed;
   top: 0;
@@ -181,10 +169,12 @@ body.sidebar-open {
 }
 
 .overlay.active {
-  display: block;
+  display: block; /* Overlay terlihat */
 }
 
-/* Hero */
+/* ======================================= */
+/* Hero                  */
+/* ======================================= */
 .hero-box {
   background-color: #08bbb9;
   color: white;
@@ -194,7 +184,9 @@ body.sidebar-open {
   margin-bottom: 20px;
 }
 
-/* Section Title */
+/* ======================================= */
+/* Section Title             */
+/* ======================================= */
 .section-title {
   text-align: center;
   margin-bottom: 16px;
@@ -202,7 +194,9 @@ body.sidebar-open {
   font-weight: bold;
 }
 
-/* Laporan Card */
+/* ======================================= */
+/* Laporan Card               */
+/* ======================================= */
 .laporan-list .card {
   background: #fff;
   border-radius: 10px;
@@ -248,7 +242,9 @@ body.sidebar-open {
   margin-top: 4px;
 }
 
-/* Tombol */
+/* ======================================= */
+/* Buttons                */
+/* ======================================= */
 .lihat-laporan {
   text-align: center;
   margin: 20px 0;
