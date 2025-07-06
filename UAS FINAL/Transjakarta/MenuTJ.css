@@ -1,271 +1,306 @@
 /* Global Styles */
 /* -------------------------------------------------- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background-color: #f9f9f9;
-  color: #333;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 /* Topbar / Navbar */
 /* -------------------------------------------------- */
 .topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: sticky; /* Agar topbar tetap di atas saat digulir */
-  top: 0;
-  z-index: 100; /* Pastikan topbar di atas konten lain */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .topbar-left-section {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Jarak antara ikon menu dan logo RANCAR */
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .menu-icon i {
-  font-size: 20px;
-  color: #00bfa5; /* Warna teal yang diinginkan */
-  cursor: pointer; /* Menambahkan kursor pointer untuk menunjukkan bahwa ini dapat diklik */
+    font-size: 20px;
+    color: #00bfa5;
+    cursor: pointer;
 }
 
 .logo1 {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Space between the RANCAR logo image and text */
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .logo-img-topbar {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .navbartext {
-  text-decoration: none;
-  color: #00bfa5;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: 'Kodchasan', sans-serif; 
+    text-decoration: none;
+    color: #00bfa5;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Kodchasan', sans-serif;
 }
 
 /* Profile Section in Topbar */
 /* -------------------------------------------------- */
 .profile {
-  display: flex;
-  align-items: center;
-  background-color: #f0f0f0; /* Warna latar belakang */
-  padding: 4px 16px 4px 4px; /* Top, Right, Bottom, Left. Perhatikan padding kiri yang lebih kecil. */
-  border-top-left-radius: 25px; /* Sesuaikan dengan setengah tinggi avatar + padding vertikal */
-  border-bottom-left-radius: 25px; /* Sesuaikan dengan setengah tinggi avatar + padding vertikal */
-  border-top-right-radius: 0; /* Pastikan sisi kanan rata */
-  border-bottom-right-radius: 0; /* Pastikan sisi kanan rata */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  height: 48px; /* Tinggi total elemen: 40px avatar + 8px padding vertikal */
-  margin-right: -16px; /* Offset agar bagian kanan menempel/keluar dari padding topbar */
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 4px 16px 4px 4px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    height: 48px;
+    margin-right: -16px;
 }
 
 .profile img {
-  width: 40px; /* Ukuran avatar lebih besar untuk sesuai dengan gambar */
-  height: 40px; /* Pastikan tinggi sama dengan lebar untuk lingkaran sempurna */
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e0e0e0; /* Border abu-abu terang */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
 }
 
-.profile span { /* Menargetkan teks username langsung di dalam .profile */
-  margin-left: 10px; /* Jarak antara avatar dan teks */
-  font-size: 16px;
-  font-weight: 600;
-  color: #00bfa5;
-  white-space: nowrap;
+.profile span {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #00bfa5;
+    white-space: nowrap;
 }
 
 /* Sidebar */
 /* -------------------------------------------------- */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px; /* Posisi awal sidebar (tersembunyi) */
-  width: 240px;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
-  transition: left 0.3s ease; /* Transisi untuk animasi buka/tutup */
-  z-index: 1001; /* Pastikan sidebar di atas overlay dan konten lain */
-  padding: 20px 16px;
-  display: flex;
-  flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 240px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar.active {
-  left: 0; /* Sidebar terlihat saat aktif */
+    left: 0;
 }
 
 .sidebar-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 40px; /* Increased space below the sidebar header (logo and text) */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 
 .sidebar-header img {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .sidebar-header .logo-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: #00bfa5;
-  font-family: 'Kodchasan', sans-serif;
+    font-size: 18px;
+    color: #00bfa5;
+    font-family: 'Kodchasan', sans-serif;
+    font-weight: bold;
 }
 
 .sidebar-menu a {
-  color: #00bfa5;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 15px;
-  padding: 10px 0;
-  display: block;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s ease;
+    color: #00bfa5;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
 }
 
 .sidebar-menu a:hover {
-  background-color: #e0f7fa;
-  border-radius: 6px;
-  padding-left: 6px;
+    background-color: #e0f7fa;
+    border-radius: 6px;
+    padding-left: 6px;
+}
+
+.close-btn {
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
 }
 
 /* Overlay for Sidebar */
 /* -------------------------------------------------- */
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  display: none; /* Awalnya tersembunyi */
-  z-index: 1000; /* Di bawah sidebar tapi di atas konten utama */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
 }
 
 .overlay.active {
-  display: block; /* Terlihat saat sidebar aktif */
+    display: block;
 }
 
 /* Main Content Area */
 /* -------------------------------------------------- */
 main {
-  padding: 16px;
-  padding-top: 38px; /* Memberikan ruang agar tidak tertutup topbar */
+    padding: 16px;
+    padding-top: 38px;
+}
+
+/* Header Section with Back Icon */
+/* -------------------------------------------------- */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.page-header .back-icon {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
 }
 
 .title {
-  font-size: 18px;
-  margin-bottom: 12px;
-  font-weight: 600; /* Menambahkan sedikit bold pada judul */
+    font-size: 18px;
+    font-weight: 600;
 }
 
 /* Search Bar */
 /* -------------------------------------------------- */
 .search-bar {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 8px 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
 }
 
 .search-bar input {
-  border: none;
-  outline: none;
-  flex: 1; /* Agar input mengisi ruang yang tersedia */
-  font-size: 14px;
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
 }
 
 .search-bar i {
-  color: #888;
-  margin-right: 8px; /* Sedikit jarak antara ikon dan input */
+    color: #888;
+    margin-right: 8px;
 }
 
 /* Route List Section */
 /* -------------------------------------------------- */
 .route-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .route-item {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border-radius: 12px;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  justify-content: space-between;
-  cursor: pointer; /* Menambahkan kursor pointer */
-  transition: transform 0.2s ease; /* Efek hover */
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .route-item:hover {
-  transform: translateY(-2px); /* Sedikit naik saat dihover */
+    transform: translateY(-2px);
 }
 
 .route-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .route-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #e0f2f1; /* Warna latar belakang ikon yang lebih terang */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #00bfa5; /* Warna ikon di dalam lingkaran */
-  font-size: 20px; /* Ukuran ikon di dalam lingkaran */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* background-color: (Pastikan tidak ada background-color di sini jika gambar sudah ada warnanya) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Penting: Untuk memastikan gambar yang mungkin lebih besar terpotong agar pas di dalam lingkaran */
+}
+
+/* Menyembunyikan Font Awesome icon jika ada di dalam .route-icon */
+.route-icon i.fas {
+    display: none;
+}
+
+/* Styling untuk gambar di dalam lingkaran */
+.route-image-in-circle {
+    width: 80%; /* Atur lebar gambar agar pas di dalam lingkaran */
+    height: 80%; /* Atur tinggi gambar agar pas di dalam lingkaran */
+    object-fit: contain; /* Memastikan gambar diskalakan agar pas di dalam elemen tanpa terpotong dan menjaga rasio aspeknya */
+    display: block; /* Menghilangkan spasi ekstra yang mungkin muncul di sekitar gambar */
+    margin: auto; /* Memposisikan gambar di tengah lingkaran */
+    /* border-radius: 50%; /* Opsional: jika gambar Anda bukan bulat dan Anda ingin membuatnya bulat */
 }
 
 .route-info {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .route-info strong {
-  color: #007b83;
-  font-size: 14px;
+    color: #007b83;
+    font-size: 14px;
 }
 
 .route-info small {
-  color: #555;
-  font-size: 12px;
+    color: #555;
+    font-size: 12px;
 }
 
 .route-right i {
-  color: #007b83;
-  font-size: 18px; /* Ukuran ikon panah */
+    color: #007b83;
+    font-size: 18px;
 }
 
 /* Warning / Alert Icon */
 /* -------------------------------------------------- */
 .warning-icon {
-  color: red;
-  font-size: 18px; /* Ukuran ikon peringatan */
+    color: red;
+    font-size: 18px;
 }

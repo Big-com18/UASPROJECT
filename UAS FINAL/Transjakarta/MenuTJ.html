@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rancar - Rute Bus</title>
-  <link rel="stylesheet" href="MenuTJ.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rancar - Rute Bus</title>
+    <link rel="stylesheet" href="MenuTJ.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="topbar-left-section">
-      <div class="menu-icon" id="openSidebar"><i class="fas fa-bars"></i></div>
-      <div class="logo1">
-        <img src="../Picture/Logo Only.png" alt="Rancar Logo" class="logo-img-topbar" />
-        <a class="navbartext" href="../Home/home.html">RANCAR</a>
-      </div>
-    </div>
-    <div class="profile">
-      <img src="../Picture/Profile.jpg" alt="Profile">
-      <span>Yaa Siin</span>
-    </div>
-  </header>
+    <header class="topbar">
+        <div class="topbar-left-section">
+            <div class="menu-icon" id="openSidebar">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo1">
+                <img src="../Picture/Logo Only.png" alt="Rancar Logo" class="logo-img-topbar" />
+                <a class="navbartext" href="../Home/home.html">RANCAR</a>
+            </div>
+        </div>
+        <div class="profile">
+            <img src="../Picture/Profile.jpg" alt="Profile" />
+            <span>Yaa Siin</span>
+        </div>
+    </header>
 
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-      <img src="../Picture/Logo Only.png" alt="Logo" class="logo-img">
-      <span class="logo-text">RANCAR</span>
-    </div>
-    <div class="sidebar-menu">
-      <a href="#" class="sidebar-link">Lihat Laporan</a>
-      <a href="#" class="sidebar-link">Upload Laporan</a>
-      <a href="#" class="sidebar-link">Rute Transjakarta</a>
-    </div>
-  </div>
-
-  <div id="overlay" class="overlay"></div>
-
-  <main>
-    <h2 class="title">Rute Bus</h2>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Cari rute">
-      <i class="fas fa-search"></i>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <img src="../Picture/Logo Only.png" alt="Logo" class="logo-img" />
+            <span class="logo-text">RANCAR</span>
+            <div class="close-btn" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="sidebar-link">Lihat Laporan</a>
+            <a href="#" class="sidebar-link">Upload Laporan</a>
+            <a href="#" class="sidebar-link">Rute Transjakarta</a>
+        </div>
     </div>
 
-    <div class="route-list" id="routeList">
-    </div>
-  </main>
+    <div id="overlay" class="overlay"></div>
 
-  <script src="MenuTJ.JS"></script>
+    <main>
+        <div class="page-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <i class="fas fa-chevron-left back-icon" style="cursor: pointer;"></i>
+            <h2 class="title">Rute Bus</h2>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Cari rute" />
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="route-list" id="routeList"></div>
+    </main>
+
+    <script src="MenuTJ.js"></script>
 </body>
 </html>
