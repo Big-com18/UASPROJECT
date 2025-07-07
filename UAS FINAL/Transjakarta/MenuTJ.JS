@@ -1,14 +1,14 @@
 const routes = [
             { name: 'Koridor 1: Blok M - Kota', desc: 'Melewati Sudirman, Thamrin, Monas', warning: true, iconImage: "./Picture/TJ1.png" }, // Sesuaikan dengan nama file ikon home Anda
-            { name: 'Koridor 2: Pulo Gadung - Harmoni', desc: 'Melewati Cempaka Putih, Senen', warning: false, iconImage: './Picture/bus_teal.png' },
-            { name: 'Koridor 3: Kalideres - Pasar Baru', desc: 'Melewati Grogol, Tomang', warning: false, iconImage: './Picture/bus_green.png' },
-            { name: 'Koridor 4: Pulo Gadung - Dukuh Atas', desc: 'Melewati Matraman, Salemba', warning: false, iconImage: './Picture/bus_blue.png' },
-            { name: 'Koridor 5: Kampung Melayu - Ancol', desc: 'Melewati Jatinegara, Gunung Sahari', warning: false, iconImage: './Picture/bus_orange.png' },
-            { name: 'Koridor 6: Ragunan - Dukuh Atas', desc: 'Melewati Warung Buncit, Mampang', warning: false, iconImage: './Picture/bus_pink.png' },
-            { name: 'Koridor 7: Kampung Rambutan - Kampung Melayu', desc: 'Melewati Cililitan, Cawang', warning: false, iconImage: './Picture/bus_purple.png' },
-            { name: 'Koridor 8: Lebak Bulus - Harmoni', desc: 'Melewati Pondok Indah, Blok M', warning: true, iconImage: './Picture/warning_red.png' },
-            { name: 'Koridor 9: Pinang Ranti - Pluit', desc: 'Melewati Cakung, Sunter', warning: false, iconImage: './Picture/bus_yellow.png' },
-            { name: 'Koridor 10: Tanjung Priok - Kota', desc: 'Melewati Ancol, Mangga Dua', warning: false, iconImage: './Picture/bus_gray.png' }
+            { name: 'Koridor 2: Pulo Gadung - Harmoni', desc: 'Melewati Cempaka Putih, Senen', warning: false, iconImage: './Picture/TJ2.png' },
+            { name: 'Koridor 3: Kalideres - Pasar Baru', desc: 'Melewati Grogol, Tomang', warning: false, iconImage: './Picture/TJ3.png' },
+            { name: 'Koridor 4: Pulo Gadung - Dukuh Atas', desc: 'Melewati Matraman, Salemba', warning: false, iconImage: './Picture/TJ4.png' },
+            { name: 'Koridor 5: Kampung Melayu - Ancol', desc: 'Melewati Jatinegara, Gunung Sahari', warning: false, iconImage: './Picture/TJ5.png' },
+            { name: 'Koridor 6: Ragunan - Dukuh Atas', desc: 'Melewati Warung Buncit, Mampang', warning: false, iconImage: './Picture/TJ6.png' },
+            { name: 'Koridor 7: Kampung Rambutan - Kampung Melayu', desc: 'Melewati Cililitan, Cawang', warning: false, iconImage: './Picture/TJ7.png' },
+            { name: 'Koridor 8: Lebak Bulus - Harmoni', desc: 'Melewati Pondok Indah, Blok M', warning: true, iconImage: './Picture/TJ8.png' },
+            { name: 'Koridor 9: Pinang Ranti - Pluit', desc: 'Melewati Cakung, Sunter', warning: false, iconImage: './Picture/TJ9.png' },
+            { name: 'Koridor 10: Tanjung Priok - Kota', desc: 'Melewati Ancol, Mangga Dua', warning: false, iconImage: './Picture/TJ10.png' }
         ];
 
         const routeList = document.getElementById("routeList");
