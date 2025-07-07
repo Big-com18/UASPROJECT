@@ -1,0 +1,171 @@
+/* Global Styles */
+/* -------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+/* ======================================= */
+/* Navbar                                  */
+/* ======================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbfbfb;
+  padding: 10px 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  z-index: 2;
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.navbar .nav-left .menu-icon {
+  color: #00b2a9;
+} 
+
+.logo {
+  height: 30px;
+  padding-right: 0px;
+}
+
+.navbartext {
+  text-decoration: none;
+  color: #00bfa5;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'Kodchasan', sans-serif;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* ======================================= */
+/* Nav-Right                               */
+/* ======================================= */
+.nav-right {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 4px 16px 4px 4px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  height: 48px;
+  margin-right: -16px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+.nav-right .username {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #00bfa5;
+  white-space: nowrap;
+}
+
+/* ======================================= */
+/* Sidebar                                 */
+/* ======================================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 240px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+  transition: left 0.3s ease;
+  z-index: 1001;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.active {
+  left: 0; /* Sidebar terlihat */
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.sidebar-header img {
+  width: 30px;
+  height: 30px;
+}
+
+.sidebar-header .logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00bfa5;
+  font-family: 'Kodchasan', sans-serif;
+}
+
+.sidebar-menu a {
+  color: #00bfa5;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 0;
+  display: block;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: #e0f7fa;
+  border-radius: 6px;
+  padding-left: 6px;
+}
+
+/* ======================================= */
+/* Overlay                                 */
+/* ======================================= */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 1000;
+}
+
+.overlay.active {
+  display: block; /* Overlay terlihat */
+}
+
+/* Untuk mencegah scrolling body saat sidebar terbuka */
+body.sidebar-open {
+  overflow: hidden; 
+}
