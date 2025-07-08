@@ -1,30 +1,44 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const openSidebarBtn = document.getElementById('openSidebar');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const body = document.body;
+class Sidebar {
+    constructor(sidebarId, overlayId, openIconId) {
+        this.sidebar = document.getElementById(sidebarId);
+        this.overlay = document.getElementById(overlayId);
+        this.openIcon = document.getElementById(openIconId);
+        this.menuLinks = document.querySelectorAll(".sidebar-link");
 
-    if (openSidebarBtn && sidebar && overlay) {
-        openSidebarBtn.addEventListener('click', function() {
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-            body.classList.add('sidebar-open');
-        });
+        this.initEvents();
+    }
 
-        overlay.addEventListener('click', function() {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            body.classList.remove('sidebar-open');
-        });
+    initEvents() {
+        if (this.openIcon) {
+            this.openIcon.addEventListener("click", this.open.bind(this));
+        } else {
+            // This console error is useful for debugging if an ID is misspelled
+            console.error(`Menu icon with ID '${this.openIconId}' not found.`); 
+        }
+        this.overlay.addEventListener("click", this.close.bind(this));
+        this.menuLinks.forEach(link => link.addEventListener("click", this.close.bind(this)));
+    }
 
-        // Opsional: Tutup sidebar jika salah satu link di sidebar diklik
-        const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                body.classList.remove('sidebar-open');
-            });
-        });
+    open() {
+        this.sidebar.classList.add("active");
+        this.overlay.classList.add("active");
+        document.body.classList.add("sidebar-open");
+    }
+
+    close() {
+        this.sidebar.classList.remove("active");
+        this.overlay.classList.remove("active");
+        document.body.classList.remove("sidebar-open");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Corrected: Ensure the ID passed here matches the HTML element's ID
+    const sidebar = new Sidebar("sidebar", "overlay", "menu-icon"); 
+
+    // Assuming you might add a close button later; otherwise, this block is not strictly needed.
+    const closeButton = document.getElementById("close-button");
+    if (closeButton) {
+        closeButton.addEventListener("click", () => sidebar.close());
     }
 });
