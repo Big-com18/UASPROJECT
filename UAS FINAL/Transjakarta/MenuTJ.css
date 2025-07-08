@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
+    padding: 12px 16px; /* Mungkin perlu disesuaikan, tapi 12px atas/bawah dan 16px kiri/kanan sudah cukup standar */
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -29,7 +29,7 @@ body {
 .topbar-left-section {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 15px; /* Jarak antara menu-icon dan logo */
 }
 
 .menu-icon i {
@@ -41,7 +41,7 @@ body {
 .logo1 {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px; /* Jarak antara logo-img-topbar dan navbartext */
 }
 
 .logo-img-topbar {
@@ -63,15 +63,13 @@ body {
     display: flex;
     align-items: center;
     background-color: #f0f0f0;
-    padding: 4px 16px 4px 4px;
+    padding: 4px 16px 4px 4px; /* Padding ini sudah cukup bagus */
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     cursor: pointer;
     height: 48px;
-    margin-right: -16px;
+    margin-right: -16px; /* Ini sudah mengatasi padding kanan topbar, bagus */
 }
 
 .profile img {
@@ -83,7 +81,7 @@ body {
 }
 
 .profile span {
-    margin-left: 10px;
+    margin-left: 10px; /* Jarak antara gambar profil dan nama */
     font-size: 16px;
     font-weight: 600;
     color: #00bfa5;
@@ -102,7 +100,7 @@ body {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
     transition: left 0.3s ease;
     z-index: 1001;
-    padding: 20px 16px;
+    padding: 20px 16px; /* Padding keseluruhan sidebar, mungkin bisa disesuaikan */
     display: flex;
     flex-direction: column;
 }
@@ -114,9 +112,11 @@ body {
 .sidebar-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */ /* Mengubah ini jika ingin logo dan teks lebih dekat ke kiri */
     gap: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Mengurangi jarak di bawah header sidebar */
+    /* Menghapus justify-content: space-between; jika Anda hanya ingin logo dan teks berdekatan di kiri */
+    /* Anda mungkin ingin: justify-content: flex-start; jika ada elemen lain di kanan yang ingin dihapus. */
 }
 
 .sidebar-header img {
@@ -131,27 +131,30 @@ body {
     font-weight: bold;
 }
 
+.sidebar-menu {
+    flex-grow: 1; /* Agar menu mengisi sisa ruang */
+    /* padding-top: 10px; */ /* Tambahkan padding di atas menu jika dirasa terlalu rapat dengan header */
+}
+
 .sidebar-menu a {
     color: #00bfa5;
     font-weight: 600;
     text-decoration: none;
     font-size: 15px;
-    padding: 10px 0;
+    padding: 10px 0; /* Padding atas/bawah untuk setiap link menu */
     display: block;
     border-bottom: 1px solid #f0f0f0;
     transition: background 0.2s ease;
+}
+
+.sidebar-menu a:last-child {
+    border-bottom: none; /* Hilangkan garis bawah untuk link terakhir */
 }
 
 .sidebar-menu a:hover {
     background-color: #e0f7fa;
     border-radius: 6px;
     padding-left: 6px;
-}
-
-.close-btn {
-    font-size: 20px;
-    color: #888;
-    cursor: pointer;
 }
 
 /* Overlay for Sidebar */
@@ -175,7 +178,7 @@ body {
 /* -------------------------------------------------- */
 main {
     padding: 16px;
-    padding-top: 38px;
+    padding-top: 30px; /* Sesuaikan ini. Topbar punya tinggi sekitar 64px (12px padding atas + 12px padding bawah + 40px tinggi gambar profil). Jadi 60px sudah cukup pas, atau sedikit lebih besar jika ingin ada sedikit ruang */
 }
 
 /* Header Section with Back Icon */
@@ -260,7 +263,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Penting: Untuk memastikan gambar yang mungkin lebih besar terpotong agar pas di dalam lingkaran */
+    overflow: hidden;
 }
 
 /* Menyembunyikan Font Awesome icon jika ada di dalam .route-icon */
@@ -270,12 +273,11 @@ main {
 
 /* Styling untuk gambar di dalam lingkaran */
 .route-image-in-circle {
-    width: 80%; /* Atur lebar gambar agar pas di dalam lingkaran */
-    height: 80%; /* Atur tinggi gambar agar pas di dalam lingkaran */
-    object-fit: contain; /* Memastikan gambar diskalakan agar pas di dalam elemen tanpa terpotong dan menjaga rasio aspeknya */
-    display: block; /* Menghilangkan spasi ekstra yang mungkin muncul di sekitar gambar */
-    margin: auto; /* Memposisikan gambar di tengah lingkaran */
-    /* border-radius: 50%; /* Opsional: jika gambar Anda bukan bulat dan Anda ingin membuatnya bulat */
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
 }
 
 .route-info {
@@ -300,7 +302,7 @@ main {
 
 /* Warning / Alert Icon */
 /* -------------------------------------------------- */
-.warning-icon {
-    color: red;
+.route-right .warning-icon {
+    color: red !important;
     font-size: 18px;
 }
