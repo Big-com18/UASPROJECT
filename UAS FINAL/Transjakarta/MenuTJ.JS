@@ -1,41 +1,47 @@
 // MenuTJ.js
 
-// --------------------------------------------------
-// 1. Sidebar Management (Encapsulation & Abstraction)
-// --------------------------------------------------
 class Sidebar {
-    constructor(sidebarId, overlayId, openIconId) {
+    // Menghapus closeSidebarId dari parameter constructor
+    constructor(sidebarId, overlayId, menuToggleId) {
         this.sidebar = document.getElementById(sidebarId);
         this.overlay = document.getElementById(overlayId);
-        this.openIcon = document.getElementById(openIconId);
+        this.menuToggle = document.getElementById(menuToggleId); // Ini adalah kontainer ikon di navbar
+        // Hapus baris ini: this.closeSidebar = document.getElementById(closeSidebarId);
         this.menuLinks = document.querySelectorAll(".sidebar-link");
 
         this.initEvents();
     }
 
     initEvents() {
-        if (this.openIcon) {
-            this.openIcon.addEventListener("click", this.open.bind(this));
+        if (this.menuToggle) {
+            this.menuToggle.addEventListener("click", this.toggle.bind(this));
         } else {
-            console.error(`Menu icon with ID '${this.openIcon.id}' not found.`);
+            console.error(`Error: Elemen menu toggle dengan ID 'menuToggle' tidak ditemukan.`);
         }
         this.overlay.addEventListener("click", this.close.bind(this));
         this.menuLinks.forEach(link => link.addEventListener("click", this.close.bind(this)));
     }
 
+    toggle() {
+        if (this.sidebar.classList.contains("active")) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+
     open() {
         this.sidebar.classList.add("active");
         this.overlay.classList.add("active");
-        document.body.classList.add("sidebar-open");
+        document.body.classList.add("sidebar-open"); // Penting: Tambahkan kelas ini ke body
     }
 
     close() {
         this.sidebar.classList.remove("active");
         this.overlay.classList.remove("active");
-        document.body.classList.remove("sidebar-open");
+        document.body.classList.remove("sidebar-open"); // Penting: Hapus kelas ini dari body
     }
 }
-
 // --------------------------------------------------
 // 2. Route Management (Encapsulation & Abstraction)
 // --------------------------------------------------
@@ -51,6 +57,13 @@ class RouteManager {
 
     initEvents() {
         this.searchInput.addEventListener("input", this.handleSearch.bind(this));
+        // Back icon functionality
+        const backIcon = document.querySelector('.back-icon');
+        if (backIcon) {
+            backIcon.addEventListener('click', () => {
+                window.history.back();
+            });
+        }
     }
 
     renderRoutes(data) {
@@ -108,6 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Initialize sidebar and route manager
-    new Sidebar("sidebar", "overlay", "openSidebar");
+    new Sidebar("sidebar", "overlay", "menuToggle");
     new RouteManager(routesData, "routeList", "searchInput");
 });

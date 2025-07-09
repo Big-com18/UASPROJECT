@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rancar</title>
-  <link rel="icon" href="../Picture/Logo Only.png" type="image/x-icon" />
-  <link rel="stylesheet" href="home.css" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-    crossorigin=""
-  />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rancar</title>
+    <link rel="icon" href="../Picture/Logo Only.png" type="image/x-icon" />
+    <link rel="stylesheet" href="home.css" />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header class="navbar">
-    <div class="nav-left">
-      <div class="menu-icon" id="openSidebar">&#9776;</div>
-      <img src="../Picture/Logo Only.png" alt="Logo Rancar" class="logo">
-      <a class="navbartext">RANCAR</a>
-    </div>
-    <div class="nav-right">
-      <img src="../Picture/Profile.jpg" alt="Avatar" class="avatar profile-border">
-      <span class="username">Yaa Siin</span>
-    </div>
-  </header>
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="menu-toggle" id="menuToggle">
+                <div class="menu-icon-bar">&#9776;</div> <div class="close-icon-navbar fas fa-times"></div> </div>
+            <img src="../Picture/Logo Only.png" alt="Logo Rancar" class="logo">
+            <a class="navbartext">RANCAR</a>
+        </div>
+        <div class="nav-right">
+            <img src="../Picture/Profile.jpg" alt="Avatar" class="avatar profile-border">
+            <span class="username">Yaa Siin</span>
+        </div>
+    </header>
 
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-      <img src="../Picture/Logo Only.png" alt="Logo" class="logo-img">
-      <span class="logo-text">RANCAR</span>
-    </div>
-    <div class="sidebar-menu">
-      <a href="#" class="sidebar-link">Lihat Laporan</a>
-      <a href="#" class="sidebar-link">Upload Laporan</a>
-      <a href="../Transjakarta/MenuTJ.html" class="sidebar-link">Rute Transjakarta</a>
-    </div>
-  </div>
-
-  <div id="overlay" class="overlay"></div>
-
-  <main class="container">
-    <section class="hero-box">
-      <p><strong>Hindari macet, cek kondisi jalan lewat Rancar.</strong></p>
-    </section>
-
-    <h3 class="section-title">Laporan Kemacetan Terkini</h3>
-    <div id="laporan-list" class="laporan-list"></div>
-
-    <div class="lihat-laporan">
-      <button>Lihat Lebih Banyak Laporan ➜</button>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-menu">
+            <a href="#" class="sidebar-link">Lihat Laporan</a>
+            <a href="#" class="sidebar-link">Upload Laporan</a>
+            <a href="../Transjakarta/MenuTJ.html" class="sidebar-link">Rute Transjakarta</a>
+        </div>
     </div>
 
-    <div class="laporkan-section">
-      <p><strong>Melihat Kemacetan?</strong></p>
-      <button class="btn-lapor">📢 Laporkan Sekarang</button>
-    </div>
+    <div id="overlay" class="overlay"></div>
 
-    <div class="transjakarta">
-      <button class="btn-transjakarta" href="../Nyoba/Menu1.html">🚌 Rute TransJakarta</button>
-    </div>
-  </main>
+    <main class="container">
+        <section class="hero-box">
+            <p><strong>Hindari macet, cek kondisi jalan lewat Rancar.</strong></p>
+        </section>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="home.js"></script>
+        <h3 class="section-title">Laporan Kemacetan Terkini</h3>
+        <div id="laporan-list" class="laporan-list"></div>
+
+        <div class="lihat-laporan">
+            <button>Lihat Lebih Banyak Laporan ➜</button>
+        </div>
+
+        <div class="laporkan-section">
+            <p><strong>Melihat Kemacetan?</strong></p>
+            <button class="btn-lapor">📢 Laporkan Sekarang</button>
+        </div>
+
+        <div class="transjakarta">
+            <button class="btn-transjakarta" href="../Nyoba/Menu1.html">🚌 Rute TransJakarta</button>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>

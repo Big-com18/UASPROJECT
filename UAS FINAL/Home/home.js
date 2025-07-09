@@ -1,44 +1,52 @@
-L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.9.4/dist/images/'; // Baris ini untuk Leaflet, biarkan jika menggunakan Leaflet
+// Baris ini untuk Leaflet, biarkan jika menggunakan Leaflet
+L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.9.4/dist/images/';
 
 // 1. Manajemen Sidebar (Enkapsulasi & Abstraksi)
-//    Kelas ini sekarang dapat digunakan kembali di berbagai halaman.
 class Sidebar {
-    constructor(sidebarId, overlayId, openIconId) {
+    // Menghapus closeSidebarId dari parameter constructor
+    constructor(sidebarId, overlayId, menuToggleId) {
         this.sidebar = document.getElementById(sidebarId);
         this.overlay = document.getElementById(overlayId);
-        this.openIcon = document.getElementById(openIconId);
+        this.menuToggle = document.getElementById(menuToggleId); // Ini adalah kontainer ikon di navbar
+        // Hapus baris ini: this.closeSidebar = document.getElementById(closeSidebarId);
         this.menuLinks = document.querySelectorAll(".sidebar-link");
 
         this.initEvents();
     }
 
     initEvents() {
-        if (this.openIcon) {
-            this.openIcon.addEventListener("click", this.open.bind(this));
+        if (this.menuToggle) {
+            this.menuToggle.addEventListener("click", this.toggle.bind(this));
         } else {
-            console.error(`Menu icon with ID '${this.openIcon.id}' not found.`); // Biarkan ini untuk debugging jika diperlukan
+            console.error(`Error: Elemen menu toggle dengan ID 'menuToggle' tidak ditemukan.`);
         }
         this.overlay.addEventListener("click", this.close.bind(this));
         this.menuLinks.forEach(link => link.addEventListener("click", this.close.bind(this)));
     }
 
+    toggle() {
+        if (this.sidebar.classList.contains("active")) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+
     open() {
         this.sidebar.classList.add("active");
         this.overlay.classList.add("active");
-        document.body.classList.add("sidebar-open");
+        document.body.classList.add("sidebar-open"); // Penting: Tambahkan kelas ini ke body
     }
 
     close() {
         this.sidebar.classList.remove("active");
         this.overlay.classList.remove("active");
-        document.body.classList.remove("sidebar-open");
+        document.body.classList.remove("sidebar-open"); // Penting: Hapus kelas ini dari body
     }
 }
 
-
-// --- DEFINISI CLASS LaporanKemacetan ---
+// --- DEFINISI CLASS LaporanKemacetan (Tidak berubah) ---
 class LaporanKemacetan {
-    // Konstruktor adalah metode khusus yang dipanggil saat objek baru dibuat
     constructor(data, index) {
         this.title = data.title;
         this.waktu = data.waktu;
@@ -48,7 +56,6 @@ class LaporanKemacetan {
         this.id = `map${index}`;
     }
 
-    // Metode untuk membuat elemen kartu HTML untuk laporan ini
     renderCard() {
         const card = document.createElement("div");
         card.className = "card";
@@ -66,9 +73,7 @@ class LaporanKemacetan {
         return card;
     }
 
-    // Metode untuk menginisialisasi peta Leaflet di dalam kartu laporan ini
     initializeMap() {
-        // Timeout 0ms tetap digunakan untuk memastikan DOM siap
         setTimeout(() => {
             if (!document.getElementById(this.id)) {
                 console.error(`Elemen dengan ID ${this.id} tidak ditemukan.`);
@@ -85,16 +90,12 @@ class LaporanKemacetan {
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
             L.marker(this.koordinat).addTo(map);
-
-            // Penting: Memastikan peta menyesuaikan ukurannya
             map.invalidateSize();
-
-            console.log(`Peta ${this.id} diinisialisasi di koordinat: ${this.koordinat}`);
         }, 0);
     }
 }
 
-// --- DATA LAPORAN ASLI (tetap sebagai array objek literal awal) ---
+// --- DATA LAPORAN ASLI (Tidak berubah) ---
 const laporanDataNew = [
     {
         title: "Banjir di Puri",
@@ -140,7 +141,7 @@ const laporanDataNew = [
     }
 ];
 
-// --- Fungsi untuk menginisialisasi laporan (sekarang menggunakan class) ---
+// --- Fungsi untuk menginisialisasi laporan ---
 function renderLaporan() {
     const container = document.getElementById("laporan-list");
     if (!container) {
@@ -149,17 +150,16 @@ function renderLaporan() {
     }
     container.innerHTML = "";
 
-    // Mengubah data mentah menjadi array objek LaporanKemacetan
     const laporanObjek = laporanDataNew.map((data, index) => new LaporanKemacetan(data, index));
 
     laporanObjek.forEach(laporan => {
-        const cardElement = laporan.renderCard(); // Panggil metode dari objek laporan
+        const cardElement = laporan.renderCard();
         container.appendChild(cardElement);
-        laporan.initializeMap(); // Panggil metode untuk inisialisasi peta
+        laporan.initializeMap();
     });
 }
 
-// --- Fungsi lainnya tetap sama ---
+// --- Fungsi lainnya ---
 function lihatLebihBanyak() {
     const messageBox = document.createElement('div');
     messageBox.style.cssText = `
@@ -183,16 +183,15 @@ function lihatLebihBanyak() {
 
 // --- DOMContentLoaded listener ---
 document.addEventListener("DOMContentLoaded", () => {
-    // Inisialisasi Sidebar menggunakan kelas baru
-    new Sidebar("sidebar", "overlay", "openSidebar");
+    // Inisialisasi Sidebar: Cukup berikan ID untuk sidebar, overlay, dan menuToggle
+    new Sidebar("sidebar", "overlay", "menuToggle");
 
-    renderLaporan(); // Render laporan kemacetan
+    renderLaporan();
 
-    // Event listener untuk tombol "Rute TransJakarta"
     const transjakartaButton = document.querySelector(".btn-transjakarta");
     if (transjakartaButton) {
         transjakartaButton.addEventListener("click", () => {
-            window.location.href = "../Transjakarta/MenuTJ.html"; // Pastikan path ini benar
+            window.location.href = "../Transjakarta/MenuTJ.html";
         });
     }
 });

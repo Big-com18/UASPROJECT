@@ -1,44 +1,45 @@
 class Sidebar {
-    constructor(sidebarId, overlayId, openIconId) {
+    constructor(sidebarId, overlayId, menuToggleId) {
         this.sidebar = document.getElementById(sidebarId);
         this.overlay = document.getElementById(overlayId);
-        this.openIcon = document.getElementById(openIconId);
+        this.menuToggle = document.getElementById(menuToggleId); // Ini adalah kontainer ikon di navbar
         this.menuLinks = document.querySelectorAll(".sidebar-link");
 
         this.initEvents();
     }
 
     initEvents() {
-        if (this.openIcon) {
-            this.openIcon.addEventListener("click", this.open.bind(this));
+        if (this.menuToggle) {
+            this.menuToggle.addEventListener("click", this.toggle.bind(this));
         } else {
-            // This console error is useful for debugging if an ID is misspelled
-            console.error(`Menu icon with ID '${this.openIconId}' not found.`); 
+            console.error(`Error: Elemen menu toggle dengan ID 'menuToggle' tidak ditemukan.`);
         }
         this.overlay.addEventListener("click", this.close.bind(this));
         this.menuLinks.forEach(link => link.addEventListener("click", this.close.bind(this)));
     }
 
+    toggle() {
+        if (this.sidebar.classList.contains("active")) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+
     open() {
         this.sidebar.classList.add("active");
         this.overlay.classList.add("active");
-        document.body.classList.add("sidebar-open");
+        document.body.classList.add("sidebar-open"); // Penting: Tambahkan kelas ini ke body
     }
 
     close() {
         this.sidebar.classList.remove("active");
         this.overlay.classList.remove("active");
-        document.body.classList.remove("sidebar-open");
+        document.body.classList.remove("sidebar-open"); // Penting: Hapus kelas ini dari body
     }
 }
 
+// Inisialisasi sidebar saat DOM selesai dimuat
 document.addEventListener("DOMContentLoaded", () => {
-    // Corrected: Ensure the ID passed here matches the HTML element's ID
-    const sidebar = new Sidebar("sidebar", "overlay", "menu-icon"); 
-
-    // Assuming you might add a close button later; otherwise, this block is not strictly needed.
-    const closeButton = document.getElementById("close-button");
-    if (closeButton) {
-        closeButton.addEventListener("click", () => sidebar.close());
-    }
+    new Sidebar("sidebar", "overlay", "menuToggle");
 });

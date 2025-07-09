@@ -1,171 +1,221 @@
-/* Global Styles */
-/* -------------------------------------------------- */
+/* ======================================= */
+/* Global Styles & Reset                   */
+/* ======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-    background-color: #f9f9f9;
+html, body {
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2;
     color: #333;
 }
+
+body.sidebar-open {
+    overflow: hidden; /* Mencegah scrolling saat sidebar terbuka */
+}
+
 /* ======================================= */
 /* Navbar                                  */
 /* ======================================= */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fbfbfb;
-  padding: 10px 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  z-index: 2;
-  position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fbfbfb;
+    padding: 10px 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 1002;
+    position: sticky;
+    top: 0;
+    width: 100%;
 }
 
 .nav-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.menu-icon {
-  font-size: 22px;
-  cursor: pointer;
+/* Gaya untuk menu-toggle dan ikon di dalamnya (tetap sama) */
+.menu-toggle {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00b2a9;
+    font-size: 22px;
 }
 
-.navbar .nav-left .menu-icon {
-  color: #00b2a9;
-} 
+.menu-icon-bar,
+.close-icon-navbar {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Default: tampilkan garis tiga, sembunyikan X */
+.menu-icon-bar {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.close-icon-navbar {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+/* Saat sidebar aktif: sembunyikan garis tiga, tampilkan X */
+body.sidebar-open .menu-icon-bar {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+body.sidebar-open .close-icon-navbar {
+    opacity: 1;
+    transform: rotate(0deg);
+}
 
 .logo {
-  height: 30px;
-  padding-right: 0px;
+    height: 30px;
+    padding-right: 0px;
 }
 
 .navbartext {
-  text-decoration: none;
-  color: #00bfa5;
-  font-weight: bold;
-  font-size: 16px;
-  font-family: 'Kodchasan', sans-serif;
-  padding-left: 0px;
-  padding-right: 0px;
+    text-decoration: none;
+    color: #00bfa5;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Kodchasan', sans-serif;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* ======================================= */
 /* Nav-Right                               */
 /* ======================================= */
 .nav-right {
-  display: flex;
-  align-items: center;
-  background-color: #f4f4f4;
-  padding: 4px 16px 4px 4px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  cursor: pointer;
-  height: 48px;
-  margin-right: -16px;
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 4px 16px 4px 4px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    height: 48px;
+    margin-right: -16px;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e0e0e0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
 }
 
 .nav-right .username {
-  margin-left: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #00bfa5;
-  white-space: nowrap;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #00bfa5;
+    white-space: nowrap;
 }
 
 /* ======================================= */
 /* Sidebar                                 */
 /* ======================================= */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 240px;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
-  transition: left 0.3s ease;
-  z-index: 1001;
-  padding: 20px 16px;
-  display: flex;
-  flex-direction: column;
+    position: fixed;
+    top: -200px; /* Sembunyikan sidebar di atas layar */
+    left: 0;
+    width: 100%; /* Lebar penuh agar sesuai tampilan rekaman Anda */
+    height: auto;
+    max-height: 200px; /* Batasi tinggi agar tidak terlalu panjang */
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: top 0.3s ease; /* Transisi untuk properti top */
+    z-index: 1001;
+    padding: 0 16px; /* Padding sisi saja */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .sidebar.active {
-  left: 0; /* Sidebar terlihat */
+    top: 60px; /* Turunkan sidebar sesuai tinggi navbar (sekitar 60px) */
 }
 
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.sidebar-header img {
-  width: 30px;
-  height: 30px;
-}
-
-.sidebar-header .logo-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: #00bfa5;
-  font-family: 'Kodchasan', sans-serif;
+/* Gaya untuk menu di dalam sidebar */
+.sidebar-menu {
+    padding-top: 10px; /* Padding atas untuk item menu pertama */
+    padding-bottom: 10px; /* Padding bawah untuk item menu terakhir */
+    width: 100%;
 }
 
 .sidebar-menu a {
-  color: #00bfa5;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 15px;
-  padding: 10px 0;
-  display: block;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s ease;
+    color: #00bfa5;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px 0;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+}
+
+.sidebar-menu a:last-child {
+    border-bottom: none;
 }
 
 .sidebar-menu a:hover {
-  background-color: #e0f7fa;
-  border-radius: 6px;
-  padding-left: 6px;
+    background-color: #e0f7fa;
+    border-radius: 6px;
+    padding-left: 6px;
 }
 
 /* ======================================= */
 /* Overlay                                 */
 /* ======================================= */
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  display: none;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
 }
 
 .overlay.active {
-  display: block; /* Overlay terlihat */
+    display: block;
 }
 
-/* Untuk mencegah scrolling body saat sidebar terbuka */
-body.sidebar-open {
-  overflow: hidden; 
+/* ======================================= */
+/* Main Content (Tambahan untuk tampilan)  */
+/* ======================================= */
+main {
+    padding: 16px;
+    margin-top: 20px; /* Memberi jarak dari navbar */
+}
+
+main h2 {
+    font-size: 24px;
+    color: #00bfa5;
+    margin-bottom: 10px;
+}
+
+main p {
+    font-size: 16px;
+    color: #555;
 }
