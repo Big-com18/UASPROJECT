@@ -10,12 +10,14 @@
 html, body {
     overflow-x: hidden;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f2f2f2;
+    background-color: #e6e9ed; /* Warna latar belakang yang lebih terang seperti di gambar */
     color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body.sidebar-open {
-    overflow: hidden; /* Mencegah scrolling saat sidebar terbuka */
+    overflow: hidden;
 }
 
 /* ======================================= */
@@ -26,21 +28,21 @@ body.sidebar-open {
     justify-content: space-between;
     align-items: center;
     background-color: #fbfbfb;
-    padding: 10px 16px;
+    padding: 10px 16px; /* Padding default untuk mobile */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     z-index: 1002;
     position: sticky;
     top: 0;
     width: 100%;
+    height: 60px; /* Tinggi navbar tetap */
 }
 
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 12px; /* Jarak antara elemen */
 }
 
-/* Gaya untuk menu-toggle dan ikon di dalamnya (tetap sama) */
 .menu-toggle {
     position: relative;
     width: 24px;
@@ -59,7 +61,6 @@ body.sidebar-open {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Default: tampilkan garis tiga, sembunyikan X */
 .menu-icon-bar {
     opacity: 1;
     transform: rotate(0deg);
@@ -70,7 +71,6 @@ body.sidebar-open {
     transform: rotate(-90deg);
 }
 
-/* Saat sidebar aktif: sembunyikan garis tiga, tampilkan X */
 body.sidebar-open .menu-icon-bar {
     opacity: 0;
     transform: rotate(90deg);
@@ -83,7 +83,6 @@ body.sidebar-open .close-icon-navbar {
 
 .logo {
     height: 30px;
-    padding-right: 0px;
 }
 
 .navbartext {
@@ -92,13 +91,9 @@ body.sidebar-open .close-icon-navbar {
     font-weight: bold;
     font-size: 16px;
     font-family: 'Kodchasan', sans-serif;
-    padding-left: 0px;
-    padding-right: 0px;
+    white-space: nowrap; /* Mencegah teks melipat */
 }
 
-/* ======================================= */
-/* Nav-Right                               */
-/* ======================================= */
 .nav-right {
     display: flex;
     align-items: center;
@@ -124,7 +119,7 @@ body.sidebar-open .close-icon-navbar {
 
 .nav-right .username {
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: #00bfa5;
     white-space: nowrap;
@@ -135,16 +130,16 @@ body.sidebar-open .close-icon-navbar {
 /* ======================================= */
 .sidebar {
     position: fixed;
-    top: -200px; /* Sembunyikan sidebar di atas layar */
+    top: -200px;
     left: 0;
-    width: 100%; /* Lebar penuh agar sesuai tampilan rekaman Anda */
+    width: 100%;
     height: auto;
-    max-height: 200px; /* Batasi tinggi agar tidak terlalu panjang */
+    max-height: 200px;
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    transition: top 0.3s ease; /* Transisi untuk properti top */
+    transition: top 0.3s ease;
     z-index: 1001;
-    padding: 0 16px; /* Padding sisi saja */
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -152,13 +147,12 @@ body.sidebar-open .close-icon-navbar {
 }
 
 .sidebar.active {
-    top: 60px; /* Turunkan sidebar sesuai tinggi navbar (sekitar 60px) */
+    top: 60px;
 }
 
-/* Gaya untuk menu di dalam sidebar */
 .sidebar-menu {
-    padding-top: 10px; /* Padding atas untuk item menu pertama */
-    padding-bottom: 10px; /* Padding bawah untuk item menu terakhir */
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
 }
 
@@ -166,11 +160,11 @@ body.sidebar-open .close-icon-navbar {
     color: #00bfa5;
     font-weight: 600;
     text-decoration: none;
-    font-size: 15px;
-    padding: 10px 0;
+    font-size: 16px;
+    padding: 12px 0;
     display: block;
     border-bottom: 1px solid #f0f0f0;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, padding-left 0.2s ease;
 }
 
 .sidebar-menu a:last-child {
@@ -180,7 +174,7 @@ body.sidebar-open .close-icon-navbar {
 .sidebar-menu a:hover {
     background-color: #e0f7fa;
     border-radius: 6px;
-    padding-left: 6px;
+    padding-left: 8px;
 }
 
 /* ======================================= */
@@ -202,20 +196,260 @@ body.sidebar-open .close-icon-navbar {
 }
 
 /* ======================================= */
-/* Main Content (Tambahan untuk tampilan)  */
+/* Main Content & Form Styles (Mobile First) */
 /* ======================================= */
-main {
+.main-content {
     padding: 16px;
-    margin-top: 20px; /* Memberi jarak dari navbar */
+    box-sizing: border-box;
+    margin-top: 20px;
+    min-height: calc(100vh - 60px - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-main h2 {
+.container {
+    width: 100%;
+    max-width: 500px; /* Default for mobile */
+    margin: 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-left: 8px;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background-color: #00bcd4;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.back-arrow {
     font-size: 24px;
-    color: #00bfa5;
-    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+    margin-right: 15px;
+    line-height: 1;
+    font-weight: normal;
 }
 
-main p {
-    font-size: 16px;
+h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
     color: #555;
+    font-size: 14px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+}
+
+textarea {
+    resize: vertical;
+}
+
+#trafficMap {
+    height: 250px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.map-info {
+    font-size: 13px;
+    color: #777;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.submit-button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #00a8bb;
+    transform: translateY(-1px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    background-color: #0096a7;
+}
+
+/* ======================================= */
+/* Media Queries for Tablet and Desktop    */
+/* ======================================= */
+
+/* Untuk Tablet (lebar >= 600px) */
+@media (min-width: 600px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .nav-right {
+        margin-right: -20px;
+    }
+    .main-content {
+        padding: 25px; /* Padding lebih besar untuk tablet */
+        margin-top: 30px; /* Jarak dari navbar */
+    }
+    .container {
+        max-width: 650px; /* Lebar lebih besar untuk tablet */
+        padding-left: 10px; /* Strip biru lebih lebar */
+    }
+    .container::before {
+        width: 10px;
+    }
+    .card {
+        padding: 25px; /* Padding card lebih besar */
+    }
+    .header {
+        margin-bottom: 30px;
+    }
+    .back-arrow {
+        font-size: 26px;
+    }
+    h3 {
+        font-size: 22px;
+    }
+    label {
+        font-size: 15px;
+    }
+    input[type="text"],
+    textarea {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    #trafficMap {
+        height: 300px;
+    }
+    .map-info {
+        font-size: 14px;
+    }
+    .submit-button {
+        padding: 14px 22px;
+        font-size: 18px;
+    }
+    .nav-right .username {
+        font-size: 16px;
+    }
+}
+
+/* Untuk Desktop (lebar >= 992px) */
+@media (min-width: 992px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    .nav-right {
+        margin-right: -30px;
+    }
+    .logo {
+        height: 35px;
+    }
+    .navbartext {
+        font-size: 18px;
+    }
+    .avatar {
+        width: 42px;
+        height: 42px;
+    }
+    .main-content {
+        padding: 40px; /* Padding lebih besar untuk desktop */
+        margin-top: 40px;
+        /* Untuk desktop, Anda mungkin ingin form di tengah halaman, bukan hanya di atas */
+        align-items: center; /* Akan memposisikan card di tengah vertikal */
+    }
+    .container {
+        max-width: 700px; /* Lebar optimal untuk form di desktop */
+        padding-left: 12px; /* Strip biru lebih lebar lagi */
+    }
+    .container::before {
+        width: 12px;
+    }
+    .card {
+        padding: 30px;
+    }
+    .back-arrow {
+        font-size: 28px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    label {
+        font-size: 16px; /* Slightly larger labels for desktop */
+    }
+    input[type="text"],
+    textarea {
+        font-size: 17px;
+    }
+    #trafficMap {
+        height: 350px;
+    }
+    .map-info {
+        font-size: 15px;
+    }
+    .submit-button {
+        padding: 16px 25px;
+        font-size: 19px;
+    }
 }

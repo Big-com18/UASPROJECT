@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rancar - Rute Bus</title>
+    <title>Rancar - Laporan</title>
     <link rel="icon" href="../Picture/Logo Only.png" type="image/x-icon" />
+
     <link rel="stylesheet" href="laporan.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
- <header class="navbar">
+    <header class="navbar">
         <div class="nav-left">
             <div class="menu-toggle" id="menuToggle">
-                <div class="menu-icon-bar">&#9776;</div> <div class="close-icon-navbar fas fa-times"></div> </div>
+                <div class="menu-icon-bar">&#9776;</div>
+                <div class="close-icon-navbar fas fa-times"></div>
+            </div>
             <img src="../Picture/Logo Only.png" alt="Logo Rancar" class="logo">
             <a class="navbartext" href="../Home/home.html">RANCAR</a>
         </div>
@@ -30,9 +37,47 @@
             <a href="../Transjakarta/MenuTJ.html" class="sidebar-link">Rute Transjakarta</a>
         </div>
     </div>
-
     <div id="overlay" class="overlay"></div>
-    <script src="laporan.js"></script>
-  </body>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                <div class="header">
+                    <a href="#" class="back-arrow">&#8592;</a>
+                    <h3>Upload Laporan</h3>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label for="judulLaporan">Judul Laporan</label>
+                        <input type="text" id="judulLaporan" name="judulLaporan" placeholder="Masukkan judul laporan">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deskripsiLengkap">Deskripsi Lengkap</label>
+                        <textarea id="deskripsiLengkap" name="deskripsiLengkap" rows="4" placeholder="Jelaskan detail laporan Anda"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="penyebab">Penyebab</label>
+                        <input type="text" id="penyebab" name="penyebab" placeholder="Contoh: Kecelakaan, Perbaikan Jalan">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lokasiKemacetan">Lokasi Kemacetan</label>
+                        <div id="trafficMap"></div>
+                        <input type="hidden" id="trafficLat" name="trafficLat">
+                        <input type="hidden" id="trafficLng" name="trafficLng">
+                        <p class="map-info">Klik pada peta untuk memilih lokasi kemacetan.</p>
+                    </div>
+
+                    <button type="submit" class="submit-button">Kirim Laporan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="laporan.js"></script> 
+</body>
 </html>
-  
