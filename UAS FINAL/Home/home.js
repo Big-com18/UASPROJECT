@@ -117,6 +117,27 @@ const laporanDataNew = [
         deskripsi: "Menghalangi jalan dan menyebabkan kemacetan.",
         kategori: "Pohon Tumbang",
         koordinat: [-6.1833, 106.8650]
+    },
+    {
+        title: "Kemacetan Parah di Gatot Subroto",
+        waktu: "1 Jul 2025, 13:00 WIB",
+        deskripsi: "Volume kendaraan tinggi menyebabkan kemacetan panjang dari Slipi hingga Kuningan.",
+        kategori: "Kemacetan",
+        koordinat: [-6.2250, 106.8180]
+    },
+    {
+        title: "Perbaikan Jalan di Tomang",
+        waktu: "1 Jul 2025, 13:15 WIB",
+        deskripsi: "Ada pekerjaan perbaikan jalan di jalur lambat Tomang, harap berhati-hati.",
+        kategori: "Perbaikan Jalan",
+        koordinat: [-6.1751436, 106.7742652]
+    },
+    {
+        title: "Kecelakaan di Senayan",
+        waktu: "1 Jul 2025, 14:00 WIB",
+        deskripsi: "Kecelakaan tunggal di dekat pintu masuk Senayan, lalu lintas tersendat.",
+        kategori: "Kecelakaan",
+        koordinat: [-6.2220, 106.8030]
     }
 ];
 
